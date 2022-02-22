@@ -19,6 +19,6 @@ from apiapp import views as api_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/entities/', api_views.AllExampleEntities.as_view()),
-    path('api/v1/entities/<int:pk>', api_views.ExampleEntityDetail.as_view()),
+    # path('api/v1/entities/', api_views.AllExampleEntities.as_view()),
+    path('api/v1/devices/<int:pk>', api_views.DeviceDetail.as_view()),
 ]
