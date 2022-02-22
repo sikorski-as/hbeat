@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  hbeat-client:
+    env_file:
+      - .env
+    build: .
+    restart: always
