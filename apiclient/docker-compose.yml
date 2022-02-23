@@ -1,0 +1,8 @@
+version: "3"
+services:
+  hbeat-client:
+    build: .
+    restart: always
+    environment:
+      - HBEAT_URL
+      - HBEAT_TOKEN

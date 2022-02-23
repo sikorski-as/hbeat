@@ -1,8 +1,13 @@
 from django.contrib import admin
 
-from apiapp.models import ExampleEntity
+from apiapp.models import Device, Heartbeat
 
 
-@admin.register(ExampleEntity)
-class ExampleEntityAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'date', 'description')
+@admin.register(Device)
+class DeviceAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'token')
+
+
+@admin.register(Heartbeat)
+class HeartbeatAdmin(admin.ModelAdmin):
+    pass
