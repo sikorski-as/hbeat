@@ -15,7 +15,7 @@ class DeviceSerializer(serializers.ModelSerializer):
     # heartbeats = HeartbeatSerializer(source='heartbeat_set', many=True)
 
     def get_heartbeats(self, instance):
-        return [heartbeat.date for heartbeat in instance.heartbeats.all()]
+        return [heartbeat.date for heartbeat in instance.heartbeats.order_by('-date').all()]
 
     class Meta:
         model = Device
