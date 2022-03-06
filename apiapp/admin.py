@@ -8,6 +8,7 @@ from apiserver import settings
 @admin.register(Device)
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'token', 'latest_heartbeat')
+    readonly_fields = ('latest_heartbeat',)
 
     def latest_heartbeat(self, obj):
         raw_tz = settings.TIME_ZONE
