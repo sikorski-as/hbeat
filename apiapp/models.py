@@ -11,7 +11,11 @@ class Device(models.Model):
         verbose_name_plural = 'Devices'
 
     def __str__(self):
-        return f'Device(name={self.name}, latest_heartbeat={self.heartbeats.latest("date")})'
+        try:
+            latest = self.heartbeats.latest("date")
+        except Heartbeat.DoesNotExist:
+            latest = None
+        return f'Device(name={self.name}, latest_heartbeat={latest})'
 
 
 class Heartbeat(models.Model):
